@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "note": "Rolling log of produced reels, used as the diversity guard (scenarios.py) and as the learning loop input. Append one entry per delivered reel; do not delete history.",
+  "fields": [
+    "slug",
+    "date",
+    "archetype",
+    "angle",
+    "hook_formula",
+    "cta",
+    "topic",
+    "duration",
+    "platforms",
+    "metrics_48h"
+  ],
+  "reels": [
+    {
+      "slug": "t",
+      "scenario": 1,
+      "date": "2026-10-21",
+      "archetype": "E",
+      "angle": "مناسبت",
+      "hook_formula": 4,
+      "cta": "",
+      "topic": "عزاداری: وفا نه نیاحه",
+      "duration": 36.5,
+      "platforms": [
+        "instagram",
+        "facebook",
+        "x"
+      ],
+      "preset": "standard",
+      "status": "built",
+      "metrics_48h": null
+    }
+  ]
+}

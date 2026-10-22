@@ -1,0 +1,445 @@
+{
+  "schema": 3,
+  "handle": "maalsadiqeen",
+  "handle_display": "@maalsadiqeen",
+  "brand_name_ar": "مع الصادقين",
+  "brand_name_fa": "مع الصادقین",
+  "language": "ar",
+  "reply_language": "fa",
+  "timezone": "Asia/Baghdad",
+  "defaults": {
+    "duration": 40,
+    "duration_window": [
+      30,
+      50
+    ],
+    "scenario_count": 4,
+    "preset": "standard",
+    "platform_priority": [
+      "instagram",
+      "facebook",
+      "x"
+    ],
+    "source_policy": "hybrid",
+    "recitation_edition": "ar.mahermuaiqly",
+    "lufs": -15.5,
+    "cover": false,
+    "theme": "main"
+  },
+  "source_policy": {
+    "input": "Every quoted text must carry its reference inside the input; anything without one is flagged and kept off screen.",
+    "research": "The agent verifies Qur'anic wording and standard references when web access exists, and records what was verified.",
+    "hybrid": "Use the input as the primary source, verify when possible, and ask the user only for the few missing references that would otherwise block the reel. Default."
+  },
+  "cta": {
+    "ending_doctrine": "one invitation at most, and only if the text earns it — never ask for a share and a save in the same ending; a heavy or sensitive text ends with the verse and the card",
+    "endings": [
+      {
+        "id": "send-question",
+        "text": "أَرْسِلْهَا لِمَنْ سَأَلَكَ عَنْهَا",
+        "icon": "send",
+        "when": "the text answers a question people actually ask"
+      },
+      {
+        "id": "send-seeker",
+        "text": "أَرْسِلْهَا لِمَنْ يَبْحَثُ عَنْ هَذَا المَعْنَى",
+        "icon": "send",
+        "when": "an explanatory text that someone is already looking for"
+      },
+      {
+        "id": "save-return",
+        "text": "احْفَظْهَا لِلْعَوْدَةِ",
+        "icon": "save",
+        "when": "a definition, a verse or a reference worth returning to"
+      },
+      {
+        "id": "save-reread",
+        "text": "احْفَظْهَا تَرْجِعْ إِلَيْهَا",
+        "icon": "save",
+        "when": "the same, second phrasing"
+      },
+      {
+        "id": "none",
+        "text": "",
+        "icon": "none",
+        "when": "a sensitive or heavy text: the verse and the card are the ending"
+      }
+    ],
+    "share": [
+      "أَرْسِلْهَا لِمَنْ سَأَلَكَ عَنْهَا",
+      "أَرْسِلْهَا لِمَنْ يَبْحَثُ عَنْ هَذَا المَعْنَى",
+      "احْفَظْهَا لِلْعَوْدَةِ",
+      "احْفَظْهَا تَرْجِعْ إِلَيْهَا"
+    ],
+    "icons": {
+      "أَرْسِلْهَا لِمَنْ سَأَلَكَ عَنْهَا": "send",
+      "أَرْسِلْهَا لِمَنْ يَبْحَثُ عَنْ هَذَا المَعْنَى": "send",
+      "احْفَظْهَا لِلْعَوْدَةِ": "save",
+      "احْفَظْهَا تَرْجِعْ إِلَيْهَا": "save"
+    },
+    "by_archetype": {
+      "A": "save-return",
+      "B": "save-return",
+      "C": "send-question",
+      "D": "send-question",
+      "E": "none",
+      "F": "none",
+      "G": "save-return",
+      "H": "send-question",
+      "I": "save-return",
+      "J": "none",
+      "K": "send-question",
+      "L": "send-question"
+    },
+    "save": [
+      "احْفَظْهَا لِلْعَوْدَةِ",
+      "احْفَظْهَا تَرْجِعْ إِلَيْهَا"
+    ],
+    "final_by_archetype": {
+      "A": "وَكُونُوا مَعَ الصَّادِقِينَ",
+      "B": "الكَلِمَةُ تَغَيَّرُ المَعْنَى",
+      "C": "النَّصُّ يَقُولُ غَيْرَ ذَلِك",
+      "D": "الجَوَابُ مِنَ المَعْصُوم",
+      "E": "عَظَّمَ اللهُ أُجُورَكُم",
+      "F": "النَّصُّ يُجِيبُ بِهُدُوء",
+      "G": "وَمَا الصِّدْقُ إِلَّا فِعْل",
+      "H": "الكَلِمَةُ تُفْتَحُ بِمَعْنَاهَا",
+      "I": "العَمَلُ يُصَدِّقُ القَوْل",
+      "J": "العِبْرَةُ فِي المَسِير",
+      "K": "النَّصُّ يَفْصِلُ بَيْنَ الفَهْمَيْن",
+      "L": "السُّؤَالُ يُجَابُ بِالنَّصّ"
+    },
+    "forbidden": [
+      "تابعونا",
+      "لايك",
+      "اشتركوا",
+      "شاركوا بقوة",
+      "لا تنسوا المتابعة",
+      "أَرْسِلْهَا لِمَنْ تُحِبّ",
+      "ارسلها لمن تحب",
+      "أرسلها لمن تحب",
+      "أَرْسِلْهَا لِمَنْ يَحْتَاجُهَا",
+      "أرسلها لمن يحتاجها",
+      "شاركها مع من تحب",
+      "انشرها",
+      "انشروها"
+    ]
+  },
+  "hashtags": {
+    "core": [
+      "#مع_الصادقين",
+      "#معارف_أهل_البيت"
+    ],
+    "topic": {
+      "سند": "#رجال_الحديث",
+      "ولاي": "#الولاية",
+      "شيعت": "#شيعة_أهل_البيت",
+      "تفسير": "#تفسير_القرآن",
+      "فقه": "#فقه_أهل_البيت",
+      "سير": "#السيرة",
+      "دعا": "#الدعاء",
+      "أخلاق": "#الأخلاق_الإسلامية",
+      "مناس": "#المناسبات_الدينية",
+      "شبه": "#رد_الشبهات"
+    },
+    "imam": {
+      "الرضا": "#الإمام_الرضا",
+      "الصادق": "#الإمام_الصادق",
+      "الباقر": "#الإمام_الباقر",
+      "الكاظم": "#الإمام_الكاظم",
+      "أمير المؤمنين": "#أمير_المؤمنين",
+      "الحسين": "#الإمام_الحسين",
+      "الحسن": "#الإمام_الحسن",
+      "فاطمة": "#فاطمة_الزهراء",
+      "النبي": "#النبي_محمد"
+    },
+    "limits": {
+      "instagram": [
+        3,
+        5
+      ],
+      "facebook": [
+        0,
+        2
+      ],
+      "x": [
+        0,
+        1
+      ]
+    }
+  },
+  "limits": {
+    "instagram": {
+      "target": [
+        600,
+        1200
+      ],
+      "hard_max": 2200,
+      "fold": 125,
+      "hashtags": [
+        3,
+        5
+      ],
+      "links_in_body": false,
+      "emoji": false
+    },
+    "facebook": {
+      "target": [
+        400,
+        900
+      ],
+      "hard_max": 63206,
+      "fold": 200,
+      "hashtags": [
+        0,
+        2
+      ],
+      "links_in_body": false,
+      "question": true,
+      "emoji": false
+    },
+    "x": {
+      "target": [
+        180,
+        250
+      ],
+      "hard_max": 250,
+      "hook_chars": 60,
+      "hashtags": [
+        0,
+        1
+      ],
+      "links_in_body": false,
+      "emoji": false
+    }
+  },
+  "posting_windows": {
+    "instagram": {
+      "local": "19:00–22:30",
+      "best_days": [
+        "الخميس",
+        "الجمعة",
+        "السبت"
+      ],
+      "metrics": [
+        "watch time",
+        "sends/reach",
+        "saves/reach",
+        "profile visits"
+      ]
+    },
+    "facebook": {
+      "local": "20:00–23:00",
+      "best_days": [
+        "الخميس",
+        "الجمعة"
+      ],
+      "metrics": [
+        "3-second views",
+        "shares",
+        "comments",
+        "link clicks"
+      ]
+    },
+    "x": {
+      "local": "21:00–23:00",
+      "best_days": [
+        "الجمعة",
+        "السبت"
+      ],
+      "metrics": [
+        "replies",
+        "reposts",
+        "bookmarks",
+        "profile clicks"
+      ]
+    }
+  },
+  "cross_post_order": [
+    "instagram",
+    "facebook",
+    "x"
+  ],
+  "cadence": {
+    "reels_per_week": 3,
+    "min_days_between_ab": 3,
+    "review_after_hours": 48
+  },
+  "comments": {
+    "max_chars": 300,
+    "count": 7,
+    "pin_first": true,
+    "offsets_minutes": [
+      0,
+      20,
+      150,
+      150,
+      300,
+      1440,
+      1440
+    ],
+    "slots": [
+      "sources",
+      "opening_question",
+      "term",
+      "life_impact",
+      "series_or_next",
+      "objection",
+      "share"
+    ]
+  },
+  "kit_files": {
+    "minimal": [
+      "captions.json",
+      "captions/",
+      "comments.md"
+    ],
+    "standard": [
+      "captions.json",
+      "captions/",
+      "comments.md",
+      "publish.md",
+      "validation.md"
+    ],
+    "full": [
+      "captions.json",
+      "captions/",
+      "comments.md",
+      "publish.md",
+      "validation.md",
+      "cover.jpg",
+      "beat-sheet.md",
+      "srt"
+    ]
+  },
+  "forbidden_on_screen": [
+    "لن تصدق",
+    "صادم",
+    "عاجل",
+    "مذهل",
+    "خطير",
+    "كارثة",
+    "فضيحة",
+    "تابعونا",
+    "لايك",
+    "اشتركوا",
+    "!!!",
+    "؟!",
+    ".."
+  ],
+  "forbidden_dialect": [
+    "ليش",
+    "شلون",
+    "شنو",
+    "وين",
+    "هسه",
+    "كلش",
+    "هاي",
+    "شو"
+  ],
+  "forbidden_patterns": [
+    "naming opponents",
+    "sectarian insults or takfir",
+    "promising worldly results",
+    "inventing a sanad or a grading",
+    "threats the text does not make",
+    "emoji or exclamation marks",
+    "Latin words other than the handle"
+  ],
+  "required_blocks": {
+    "life_impact_seconds": [
+      2,
+      4
+    ],
+    "brand_card_min": 1.5,
+    "onward_words_max": 70
+  },
+  "utc_offset_hours": 3,
+  "questions": {
+    "instagram": [
+      "ما الذي يفتحه هذا النصّ في فهمك؟",
+      "أيُّ كلمةٍ في النصّ توقفتَ عندها؟",
+      "كيف تقرأ هذا المعنى في حياتك اليوم؟"
+    ],
+    "facebook": [
+      "كيف تقرأ هذا النصّ في يومك؟",
+      "ما السؤال الذي يبقى بعد هذا النصّ؟",
+      "أين ترى هذا المعنى في تعاملك اليومي؟"
+    ],
+    "x": [
+      "ما فهمُك لهذا النصّ؟"
+    ]
+  },
+  "version": "3.2.0",
+  "themes": {
+    "main": {
+      "label_ar": "النهار",
+      "label_fa": "روشن — نسخهٔ اصلی",
+      "tokens": {
+        "paper": "#ece6da",
+        "paper2": "#e2dacb",
+        "green": "#1f4a35",
+        "green2": "#2f6a4b",
+        "gold": "#957238",
+        "gold2": "#cdb078",
+        "ink": "#2d2b27",
+        "ink2": "#5a5650",
+        "line": "#8aa58f",
+        "body_bg": "#ece6da",
+        "paper_hi": "#f4efe6",
+        "paper_mid": "#ebe4d7",
+        "paper_lo": "#ddd4c3",
+        "light_opacity": "0.55",
+        "grain_opacity": "0.085",
+        "grain_blend": "multiply",
+        "vignette": "rgba(70,52,28,0.17)",
+        "glow": "rgba(210,180,122,0.55)",
+        "card_bg": "rgba(255,255,255,0.35)",
+        "card_line": "rgba(31,74,53,0.35)",
+        "seal_bg": "rgba(255,255,255,0.22)",
+        "seal_flash": "rgba(180,140,74,0.45)",
+        "chip_bg": "#f1ece1",
+        "logo_filter": "none",
+        "sprig_line": "#9a8650",
+        "sprig_leaf": "#4f7a55",
+        "panel_bg": "#f7f3ea",
+        "panel_line": "#c9c0b0"
+      }
+    },
+    "mourning": {
+      "label_ar": "ليلُ العزاء",
+      "label_fa": "تیره — ایام عزاداری",
+      "note_fa": "مشکی گرم و مات (نه سیاه مطلق)، خطِ طلایی کم‌رنگ، بدون قرمز خون‌آلود و بدون افکت ماتم‌زده.",
+      "tokens": {
+        "paper": "#0e0f0e",
+        "paper2": "#151614",
+        "green": "#e8dfcb",
+        "green2": "#f4eddd",
+        "gold": "#c2a267",
+        "gold2": "#ddc79a",
+        "ink": "#efe8d8",
+        "ink2": "#a89f8c",
+        "line": "#565244",
+        "body_bg": "#0a0b0a",
+        "paper_hi": "#171814",
+        "paper_mid": "#101110",
+        "paper_lo": "#060706",
+        "light_opacity": "0.10",
+        "grain_opacity": "0.06",
+        "grain_blend": "screen",
+        "vignette": "rgba(0,0,0,0.62)",
+        "glow": "rgba(194,162,103,0.18)",
+        "card_bg": "rgba(255,255,255,0.05)",
+        "card_line": "rgba(194,162,103,0.34)",
+        "seal_bg": "rgba(255,255,255,0.04)",
+        "seal_flash": "rgba(194,162,103,0.28)",
+        "chip_bg": "rgba(255,255,255,0.06)",
+        "logo_filter": "brightness(0) invert(1) opacity(.86)",
+        "sprig_line": "#6d5f42",
+        "sprig_leaf": "#3a3f35",
+        "panel_bg": "#121311",
+        "panel_line": "#2c2a24"
+      }
+    }
+  }
+}

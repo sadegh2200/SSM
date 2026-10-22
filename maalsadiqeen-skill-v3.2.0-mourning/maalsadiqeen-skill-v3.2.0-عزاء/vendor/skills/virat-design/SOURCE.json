@@ -1,0 +1,21 @@
+{
+  "name": "virat-design",
+  "repo": "viratk-dev/virat-design",
+  "path": "(root)",
+  "ref": "main",
+  "commit": "b92426402636a7a3a77aad5509cfc25761031fe4",
+  "stars": 6,
+  "license": "MIT",
+  "domain": "premium minimal graphic design",
+  "why": "Purpose-built for exactly this output family: minimal design methodology for social posts, carousels, stories (1080x1920), posters, thumbnails, banners and covers; fixed principles with brand-adaptable tokens and a QA checklist.",
+  "caveats": [
+    "Low star count; chosen for fit, not fame. The 99k-star alternative (Leonxlnx/taste-skill) is a frontend landing-page skill, not static social graphics.",
+    "Its Virat default palette (royal blue) is overridden by the maalsadiqeen brand tokens: paper/green/gold only.",
+    "It is explicitly for static visuals, not video motion; use it for frames, covers and carousels."
+  ],
+  "fetched_at": "2026-10-21",
+  "files": [
+    "LICENSE",
+    "SKILL.md"
+  ]
+}

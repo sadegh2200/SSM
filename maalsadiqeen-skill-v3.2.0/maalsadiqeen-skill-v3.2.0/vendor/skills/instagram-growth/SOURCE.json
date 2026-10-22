@@ -1,0 +1,25 @@
+{
+  "name": "instagram-growth",
+  "repo": "social-media-skills/skills",
+  "path": "skills/instagram-growth",
+  "ref": "main",
+  "commit": "f28cef2b7067ec64e79c9d85421c022c06659e03",
+  "stars": 177,
+  "license": "MIT",
+  "domain": "social-media algorithms",
+  "why": "The most current, specific account of how Instagram distribution works in 2026 (discovery engine, ~94% AI recommendations, watch time, sends-per-reach 3-5x likes, per-surface algorithms, eligibility gates, Trial Reels, growth-loop diagnosis) with references and evals.",
+  "caveats": [
+    "WoopSocial analytics references are inert here; use native Instagram Insights.",
+    "It routes to sibling skills that are not installed; the diagnosis and signal model stand alone, and the maalsadiqeen platforms.md will absorb the platform rules."
+  ],
+  "fetched_at": "2026-10-21",
+  "files": [
+    "LICENSE",
+    "SKILL.md",
+    "evals/evals.json",
+    "references/examples.md",
+    "references/format-and-diagnosis.md",
+    "references/the-growth-engine.md",
+    "references/the-sends-lever.md"
+  ]
+}

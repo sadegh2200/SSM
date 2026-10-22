@@ -1,0 +1,14 @@
+# Skill runtime output (scripts/env.sh defaults, relative to the directory you run from)
+/reel-work/
+/reel-deliver/
+reel-work/
+reel-deliver/
+
+# Node / Python scratch
+node_modules/
+__pycache__/
+*.pyc
+.cache/
+
+# OS noise
+.DS_Store

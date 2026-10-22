@@ -1,0 +1,194 @@
+{
+  "fps": 30,
+  "total": 1253,
+  "pace": 1.12,
+  "order": [
+    "hook",
+    "hadith",
+    "bayan",
+    "sanad",
+    "cta"
+  ],
+  "scenes": {
+    "hook": {
+      "dur": 126,
+      "size": 106,
+      "sub_at": 38,
+      "from": 0
+    },
+    "hadith": {
+      "dur": 357,
+      "body": 78,
+      "lead": 128,
+      "warning": 66,
+      "intro": 44,
+      "pages": [
+        {
+          "from": 0,
+          "dur": 357,
+          "intro_at": 22,
+          "top": 716,
+          "lines": [
+            {
+              "i": 0,
+              "at": 82
+            },
+            {
+              "i": 1,
+              "at": 182
+            }
+          ],
+          "bridge_at": 269
+        }
+      ],
+      "from": 121
+    },
+    "bayan": {
+      "dur": 336,
+      "size": 40,
+      "top": 655,
+      "lines_at": [
+        24,
+        156,
+        288
+      ],
+      "from": 473
+    },
+    "sanad": {
+      "dur": 246,
+      "start": 30,
+      "step": 26,
+      "seal_at": 132,
+      "row": 112,
+      "name": 40,
+      "chip": 28,
+      "from": 804
+    },
+    "cta": {
+      "dur": 208,
+      "from": 1045
+    }
+  },
+  "sfx": [
+    {
+      "at": 0,
+      "src": "boom",
+      "vol": 0.7
+    },
+    {
+      "at": 3,
+      "src": "whoosh",
+      "vol": 0.35
+    },
+    {
+      "at": 121,
+      "src": "page-turn",
+      "vol": 0.4
+    },
+    {
+      "at": 203,
+      "src": "whoosh",
+      "vol": 0.3
+    },
+    {
+      "at": 303,
+      "src": "stamp",
+      "vol": 0.55
+    },
+    {
+      "at": 390,
+      "src": "tick",
+      "vol": 0.5
+    },
+    {
+      "at": 473,
+      "src": "page-turn",
+      "vol": 0.4
+    },
+    {
+      "at": 497,
+      "src": "tick",
+      "vol": 0.6
+    },
+    {
+      "at": 629,
+      "src": "tick",
+      "vol": 0.6
+    },
+    {
+      "at": 761,
+      "src": "tick",
+      "vol": 0.6
+    },
+    {
+      "at": 804,
+      "src": "page-turn",
+      "vol": 0.4
+    },
+    {
+      "at": 834,
+      "src": "tick",
+      "vol": 0.55
+    },
+    {
+      "at": 844,
+      "src": "stamp",
+      "vol": 0.5
+    },
+    {
+      "at": 860,
+      "src": "tick",
+      "vol": 0.55
+    },
+    {
+      "at": 870,
+      "src": "stamp",
+      "vol": 0.5
+    },
+    {
+      "at": 886,
+      "src": "tick",
+      "vol": 0.55
+    },
+    {
+      "at": 896,
+      "src": "stamp",
+      "vol": 0.5
+    },
+    {
+      "at": 912,
+      "src": "tick",
+      "vol": 0.55
+    },
+    {
+      "at": 936,
+      "src": "ding",
+      "vol": 0.4
+    },
+    {
+      "at": 936,
+      "src": "boom",
+      "vol": 0.4
+    },
+    {
+      "at": 1045,
+      "src": "page-turn",
+      "vol": 0.4
+    },
+    {
+      "at": 1075,
+      "src": "whoosh",
+      "vol": 0.35
+    },
+    {
+      "at": 1123,
+      "src": "tick",
+      "vol": 0.6
+    },
+    {
+      "at": 1133,
+      "src": "tick",
+      "vol": 0.6
+    }
+  ]
+}

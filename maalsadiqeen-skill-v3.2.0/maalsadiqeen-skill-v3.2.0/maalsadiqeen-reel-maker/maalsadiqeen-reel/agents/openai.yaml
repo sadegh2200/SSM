@@ -1,0 +1,6 @@
+interface:
+  display_name: "Maalsadiqeen Reel Maker"
+  short_description: "Branded Arabic sheets (verse / ḥadīth / scholar quote) → dignified 30–60 s faceless Instagram Reel for «مع الصادقين», with recitation, sound design, QC gates, cover, beat sheet and post kit."
+  default_prompt: "Turn the attached sheets into a Reel with the maalsadiqeen-reel skill: read the sheets, write the brief and the spec, build, mix, verify (show me qc/sheet.jpg), render, and give me the cover, the Persian beat sheet and the post kit."
+policy:
+  allow_implicit_invocation: true

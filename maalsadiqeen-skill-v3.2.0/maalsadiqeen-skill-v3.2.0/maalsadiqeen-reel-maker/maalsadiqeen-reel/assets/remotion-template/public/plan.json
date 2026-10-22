@@ -1,0 +1,266 @@
+{
+  "fps": 30,
+  "total": 1390,
+  "pace": 0.756,
+  "order": [
+    "hook",
+    "hadith",
+    "points",
+    "sanad",
+    "cta"
+  ],
+  "scenes": {
+    "hook": {
+      "dur": 100,
+      "size": 106,
+      "sub_at": 38,
+      "from": 0
+    },
+    "hadith": {
+      "dur": 336,
+      "body": 68,
+      "lead": 112,
+      "warning": 61,
+      "intro": 44,
+      "pages": [
+        {
+          "from": 0,
+          "dur": 336,
+          "intro_at": 22,
+          "top": 640,
+          "lines": [
+            {
+              "i": 0,
+              "at": 63
+            },
+            {
+              "i": 1,
+              "at": 115
+            },
+            {
+              "i": 2,
+              "at": 145
+            },
+            {
+              "i": 3,
+              "at": 175
+            }
+          ],
+          "bridge_at": 272
+        }
+      ],
+      "from": 95
+    },
+    "points": {
+      "dur": 510,
+      "cards": [
+        {
+          "from": 0,
+          "dur": 170
+        },
+        {
+          "from": 162,
+          "dur": 178
+        },
+        {
+          "from": 332,
+          "dur": 178
+        }
+      ],
+      "title": 94,
+      "desc": 44,
+      "from": 426
+    },
+    "sanad": {
+      "dur": 305,
+      "start": 30,
+      "step": 26,
+      "seal_at": 210,
+      "row": 112,
+      "name": 40,
+      "chip": 28,
+      "from": 931
+    },
+    "cta": {
+      "dur": 159,
+      "from": 1231
+    }
+  },
+  "sfx": [
+    {
+      "at": 0,
+      "src": "boom",
+      "vol": 0.7
+    },
+    {
+      "at": 3,
+      "src": "whoosh",
+      "vol": 0.35
+    },
+    {
+      "at": 95,
+      "src": "page-turn",
+      "vol": 0.4
+    },
+    {
+      "at": 158,
+      "src": "whoosh",
+      "vol": 0.3
+    },
+    {
+      "at": 210,
+      "src": "tick",
+      "vol": 0.7
+    },
+    {
+      "at": 240,
+      "src": "tick",
+      "vol": 0.7
+    },
+    {
+      "at": 270,
+      "src": "stamp",
+      "vol": 0.55
+    },
+    {
+      "at": 367,
+      "src": "tick",
+      "vol": 0.5
+    },
+    {
+      "at": 426,
+      "src": "page-turn",
+      "vol": 0.4
+    },
+    {
+      "at": 440,
+      "src": "whoosh",
+      "vol": 0.3
+    },
+    {
+      "at": 460,
+      "src": "tick",
+      "vol": 0.6
+    },
+    {
+      "at": 602,
+      "src": "whoosh",
+      "vol": 0.3
+    },
+    {
+      "at": 622,
+      "src": "tick",
+      "vol": 0.6
+    },
+    {
+      "at": 772,
+      "src": "whoosh",
+      "vol": 0.3
+    },
+    {
+      "at": 792,
+      "src": "tick",
+      "vol": 0.6
+    },
+    {
+      "at": 931,
+      "src": "page-turn",
+      "vol": 0.4
+    },
+    {
+      "at": 961,
+      "src": "tick",
+      "vol": 0.55
+    },
+    {
+      "at": 971,
+      "src": "stamp",
+      "vol": 0.5
+    },
+    {
+      "at": 987,
+      "src": "tick",
+      "vol": 0.55
+    },
+    {
+      "at": 997,
+      "src": "stamp",
+      "vol": 0.5
+    },
+    {
+      "at": 1013,
+      "src": "tick",
+      "vol": 0.55
+    },
+    {
+      "at": 1023,
+      "src": "stamp",
+      "vol": 0.5
+    },
+    {
+      "at": 1039,
+      "src": "tick",
+      "vol": 0.55
+    },
+    {
+      "at": 1049,
+      "src": "stamp",
+      "vol": 0.5
+    },
+    {
+      "at": 1065,
+      "src": "tick",
+      "vol": 0.55
+    },
+    {
+      "at": 1075,
+      "src": "stamp",
+      "vol": 0.5
+    },
+    {
+      "at": 1091,
+      "src": "tick",
+      "vol": 0.55
+    },
+    {
+      "at": 1101,
+      "src": "stamp",
+      "vol": 0.5
+    },
+    {
+      "at": 1117,
+      "src": "tick",
+      "vol": 0.55
+    },
+    {
+      "at": 1141,
+      "src": "ding",
+      "vol": 0.4
+    },
+    {
+      "at": 1141,
+      "src": "boom",
+      "vol": 0.4
+    },
+    {
+      "at": 1231,
+      "src": "page-turn",
+      "vol": 0.4
+    },
+    {
+      "at": 1261,
+      "src": "whoosh",
+      "vol": 0.35
+    },
+    {
+      "at": 1309,
+      "src": "tick",
+      "vol": 0.6
+    },
+    {
+      "at": 1319,
+      "src": "tick",
+      "vol": 0.6
+    }
+  ]
+}

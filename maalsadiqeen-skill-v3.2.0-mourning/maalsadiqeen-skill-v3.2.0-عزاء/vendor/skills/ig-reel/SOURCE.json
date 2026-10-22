@@ -1,0 +1,23 @@
+{
+  "name": "ig-reel",
+  "repo": "Jakeschincariol/instagram-agent-skill",
+  "path": "skills/ig-reel",
+  "ref": "main",
+  "commit": "d03c56bb598be770c60b201f94237e5d1a4268a6",
+  "stars": 2208,
+  "license": "MIT",
+  "domain": "viral Instagram Reels",
+  "why": "Most complete Reels-specific skill found: 26 hook formulas, a five-property hook scorer, a timed beat-sheet generator, and an explicit hook/stake/body/payoff/loop structure.",
+  "caveats": [
+    "English-first: hookscore.py is not calibrated for Arabic (it scored a strong Arabic hook as 8.4/WEAK); use maalsadiqeen hook_score_ar.py for Arabic and take only the structure/formula thinking from this skill.",
+    "Needs ~/.claude/instagram/voice.md; a maalsadiqeen voice profile is installed alongside."
+  ],
+  "fetched_at": "2026-10-21",
+  "files": [
+    "LICENSE",
+    "SKILL.md",
+    "beats.py",
+    "hooks.json",
+    "hookscore.py"
+  ]
+}

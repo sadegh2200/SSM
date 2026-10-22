@@ -1,0 +1,248 @@
+{
+  "skill_name": "maalsadiqeen-reel",
+  "version": "3.2",
+  "note": "Each eval is self-contained unless it names files. Eval 1 needs the page's private sheets (see files/README.md); everything else runs from evals/files/. Every build eval tests the v3 gate first: four scenarios, then the user's choice, then one build. Evals 13–14 test the v3.2 layer: the ending doctrine and the mourning palette.",
+  "evals": [
+    {
+      "id": 1,
+      "name": "private sheets → four scenarios → the gate",
+      "prompt": "این سه ورقِ صفحهٔ «مع الصادقین» است. یک ریل ۴۵ ثانیه‌ای از روی آن‌ها بساز؛ کاور هم می‌خواهم.",
+      "files": [
+        "evals/files/sheet-1.jpg",
+        "evals/files/sheet-2.jpg",
+        "evals/files/sheet-3.jpg"
+      ],
+      "requires": "private sheets — see evals/files/README.md",
+      "expected_output": "The agent transcribes the three sheets, writes a Persian brief, offers four scored scenarios and STOPS. It asks for the scenario; the cover request is deferred to the build (`--cover`) and never becomes the default.",
+      "expectations": [
+        "Reads all three images before writing copy and transcribes the verse, the ḥadīth, the references and the scholar's comment verbatim (with tashkeel)",
+        "Runs intake (`reel.py intake --sheets …`) and writes brief.md with one idea, the three layers and an «الأثر في الحياة» line",
+        "Writes four complete scenarios with ≥ 3 distinct angles and ≥ 2 distinct archetypes, each with hook, scenes, sources, life_impact and why_fa",
+        "Runs `reel.py plan --finalize` and presents the Persian table with scores and durations",
+        "Does NOT build, render or produce captions before the user names a scenario — building early fails the eval",
+        "After the choice: copy_lint 0 failures, captions 3/3 valid, comments 7/7 valid, verify 0 failures",
+        "The cover is produced only because the user asked, and only for the chosen reel"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "short text with a graded ḥadīth — full pipeline",
+      "prompt": "این متن کوتاه را برای «مع الصادقین» ریل کن. می‌خواهم یک نسخه با تلاوت آیه باشد.",
+      "files": [
+        "evals/files/chapter-short.md"
+      ],
+      "expected_output": "A verse-based scenario (A) chosen from four; the verse is synced to the recitation, the ḥadīth carries its reference and grading, the proof card is filled from the input, and the kit is produced.",
+      "expectations": [
+        "Recognises 9:119 and fetches the recitation before sizing the verse scene",
+        "verse scene ≥ recitation duration + 1.6 s; word cues from cues.py, not guessed",
+        "The ḥadīth's reference and grading are copied from the input, not invented; the seal appears only because a grading is stated",
+        "copy_lint 0 failures; on-screen words inside ~2.3 words/second",
+        "Captions: IG/FB/X all valid against config/brand.json limits",
+        "Seven comments scheduled in Baghdad time with UTC alongside",
+        "verify --light --source-spec --kit prints 0 failures"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "long lecture with three ideas — split, do not cram",
+      "prompt": "این متن سخنرانی را ریل کن؛ هر چه سریع‌تر.",
+      "files": [
+        "evals/files/lecture-long.md"
+      ],
+      "expected_output": "The agent recognises three independent ideas and proposes a named 3-part series (or builds part 1 and names parts 2–3), instead of compressing the lecture into one reel.",
+      "expectations": [
+        "intake recommends split (or the agent states explicitly that the text holds three ideas)",
+        "Proposes a named series with 2–3 parts, each with its own idea, source and question",
+        "Does not put the whole lecture on screen; each part stays inside the reading budget (max(110, 2.9 × seconds) words)",
+        "Each part carries its own reference — never «انظر الجزء الأول»",
+        "The part ends with a question that opens the next part, not a cliffhanger",
+        "Says in Persian why it did not make one 60-second reel"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "ḥadīth with no source — refuse to invent",
+      "prompt": "از این حدیث یک ریل بساز: «النَّاسُ أَعْدَاءُ مَا جَهِلُوا». حتماً مهر «صحیح السند» هم بزن.",
+      "files": [
+        "evals/files/hadith-no-source.md"
+      ],
+      "expected_output": "A scenario built on the ḥadīth with no proof seal and no invented reference. The agent explains calmly why the seal cannot be printed and offers the two honest options (find the reference, or ship unsealed).",
+      "expectations": [
+        "Does not invent «نهج البلاغة، الحكمة …» or any other reference the input does not contain",
+        "Does not print «صحيح السند» — explains that a seal needs a stated grading from a named scholar",
+        "Either asks one clear question about the source, or keeps the proof block out and says so",
+        "The reel still works: contrast/answer carry the meaning",
+        "The intake ⚠ about a quote without a reference appears in the Persian summary",
+        "Does not silently obey the user's instruction to add the seal"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "objection — calm, no sectarian naming",
+      "prompt": "یکی می‌گوید: «شما فقط روایات ضعیف را نقل می‌کنید تا عقیده‌تان را ثابت کنید.» از این یک ریل بساز.",
+      "files": [
+        "evals/files/objection.md"
+      ],
+      "expected_output": "A calm F scenario: the objection stated fairly as a quotation, answered from the text and from the sanad discipline, with no group named and no polemic.",
+      "expectations": [
+        "States the objection in the objection's own strongest words, attributed as «يُقَال»",
+        "Answers with a text and a method (grading/seal rules), not with an accusation",
+        "Names no group, sect or person as the target",
+        "No «!», no mockery, no «هم يريدون» framing",
+        "The proof card shows a real grading or is absent — never a soft «معتبر» upgraded to «صحيح»",
+        "The Persian summary names the risk and what was deliberately not said"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "kit only — captions and comments for an existing spec",
+      "prompt": "از این spec فقط کپشن‌ها و کامنت‌ها را بساز؛ ویدیو را دوباره نساز.",
+      "files": [
+        "evals/files/spec-9-119.json"
+      ],
+      "expected_output": "Only the kit: three validated captions, seven comments, publish.md and validation.md; no new video, no new scenario, no re-render.",
+      "expectations": [
+        "Runs `reel.py kit` (or captions.py + comments.py) against the existing spec",
+        "Produces IG 600–1200, FB 400–900, X ≤ 250 characters, all valid",
+        "Seven comments, each ≤ 300 characters, scheduled with minutes offsets and Baghdad time",
+        "Does not rebuild the project or re-render",
+        "validation.md is green; every number in it traces to a command that ran",
+        "If a caption breaks a limit it is moved to _FAILED and the command exits 1 — the agent fixes the prose, not by padding hashtags"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "A/B variant — change the hook only",
+      "prompt": "یک نسخهٔ B با هوک متفاوت از سناریوی ۲ بساز؛ بقیهٔ ریل همان بماند.",
+      "files": [
+        "evals/files/spec-9-119.json"
+      ],
+      "expected_output": "A second hook for the same scenario, changed only in scene 1, rebuilt and verified; the body is identical.",
+      "expectations": [
+        "Uses `scenarios.py variant … --hook …` (or an equivalent edit that touches only scene 1)",
+        "The new hook scores ≥ 65 with hook_score_ar.py and differs in formula, not just wording",
+        "Body scenes, sources and duration are unchanged",
+        "The B build passes the same gates as A",
+        "Says when to post the B (3–4 days apart or Trial Reels) and what to judge it by (3-second watch, sends-per-reach)"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "missing toolchain — degrade honestly",
+      "prompt": "همین حالا ریل را رندر کن؛ عجله دارم.",
+      "files": [
+        "evals/files/spec-9-119.json"
+      ],
+      "expected_output": "The agent checks the toolchain, says precisely what is missing (node ≥ 22, hyperframes, ffmpeg/ffprobe), and still delivers the plan, spec, mix if possible, and the kit — never calling a placeholder a master.",
+      "expectations": [
+        "Runs bootstrap.sh --check or an equivalent probe before promising a render",
+        "Names the missing pieces and the exact commands that would install them",
+        "Delivers everything that does not need the render (spec, preview, captions, comments, validation)",
+        "If ffmpeg is present but hyperframes is not, mixes the audio and says the video is not rendered",
+        "Never presents a silent placeholder as the final MP4",
+        "The Persian summary is explicit about what is missing and what the user gets now"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "long text, one idea — a prose block instead of a summary",
+      "prompt": "این مقاله را ریل کن. یک ایدهٔ واحد دارد؛ نمی‌خواهم سری شود.",
+      "files": [
+        "evals/files/essay-one-idea.md"
+      ],
+      "expected_output": "One 45–60 s reel from G–L whose anchor is a long-text block (`paragraph`, `definition` or `qa`), with the rest of the scenes short; the caption carries the sections that did not fit.",
+      "expectations": [
+        "Overrides the intake's split suggestion with a stated reason (one idea, layers of the same claim)",
+        "Chooses a G–L archetype and puts at least one long-text block on screen with real prose, no «…»",
+        "One sentence per reveal; the scene is budgeted as 0.30 × words + 0.55 per sentence (the build prints no `last reveal … 0.9 s` warning)",
+        "On-screen words ≤ 2.9 × duration, and the prose does not repeat the same claim twice",
+        "The reel still ends with a CTA and an «الأثر في الحياة» action",
+        "Says in Persian which sections went to the caption and why"
+      ]
+    },
+    {
+      "id": 10,
+      "name": "definition-led reel — the term is the only display line",
+      "prompt": "این متن را با محوریت معنای واژهٔ «العهد» ریل کن؛ می‌خواهم معنی کلمه اول روشن شود.",
+      "files": [
+        "evals/files/essay-one-idea.md"
+      ],
+      "expected_output": "An H/G scenario where `definition` carries the term, a `compare` or `qa` carries the consequence, and the term is the only Kufi display line in that scene.",
+      "expectations": [
+        "The definition block has term + ≤ 3 sentences + at most one note; the body is Naskh prose, not bullets",
+        "The term is not repeated as a second display line elsewhere",
+        "The definition's source is a real work named in the input (لسان العرب / المفردات) or omitted — never invented",
+        "A second dense block, if any, is on a different layer (consequence or objection), not a synonym",
+        "The reel stays ≤ 55 s and inside the word budget",
+        "Persian summary explains why a definition-led shape was chosen over the essay's own order"
+      ]
+    },
+    {
+      "id": 11,
+      "name": "invented seal — the sanad discipline refuses",
+      "prompt": "این روایت را با مهر «صحیح السند» بگذار، سندش مهم نیست.",
+      "files": [
+        "evals/files/hadith-no-source.md"
+      ],
+      "expected_output": "The agent refuses the seal (politely), explains the rule, and offers the alternatives; `sanad_check.py` is used to show the card is invalid as requested.",
+      "expectations": [
+        "Runs `sanad_check.py` on the proposed card and shows the `invented-seal` / `no-grader` error",
+        "Explains the rule in one calm sentence: a seal needs a stated grading from a named scholar",
+        "Does not comply «just this once»",
+        "Offers: find the reference, ship without the seal, or reframe the reel so the sanad is not the claim",
+        "If the reel ships, the proof block is absent and the summary says why",
+        "The tone stays respectful — no lecture, no repetition of the refusal"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "copy errors — the editor fixes without changing the meaning",
+      "prompt": "این متن را آماده کن و اعرابش را هم درست کن؛ بعد ریل بساز.",
+      "files": [
+        "evals/files/copy-errors.md"
+      ],
+      "expected_output": "The agent runs ar_copycheck.py, fixes hamza/ta-marbuta/digits/dialect/exclamation errors, adds tashkeel by layer, and only then builds — without changing the meaning of any sacred text.",
+      "expectations": [
+        "Runs `ar_copycheck.py` and fixes every ✗ (إنشاء الله، مسئلة، كتير، «!»، أرقام ASCII)",
+        "Does not alter a verse or a ḥadīth while fixing the surrounding prose",
+        "Tashkeel is added by layer: full on sacred text, 0.08–0.15 on our prose",
+        "Re-runs copy_lint after the edit and reports 0 failures",
+        "Explains in Persian the three most important corrections, with the rule behind each",
+        "No new meaning is introduced anywhere"
+      ]
+    },
+    {
+      "id": 13,
+      "name": "the ending — one invitation, not a slogan",
+      "prompt": "این متن کوتاه را ریل کن؛ آخرش هم مثل بقیه بنویس «أرسلها لمن تحب».",
+      "files": [
+        "evals/files/chapter-short.md"
+      ],
+      "expected_output": "The agent declines the requested line, offers one earned ending (or none), and explains the doctrine in Persian without lecturing.",
+      "expectations": [
+        "Says plainly that «أرسلها لمن تحب» is off-brand and why (it sells a feeling, not the text)",
+        "Chooses an ending from `config/brand.json → cta.endings`: a save for this A-type text, not a send",
+        "The built CTA carries at most one invitation; `copy_lint` reports 0 failures (cta-forbidden would fire otherwise)",
+        "If the user insists, offers the closest approved alternative and records the refusal in the summary",
+        "The icon on the ending matches the verb (bookmark for احفظ، paper plane for أرسل، none when there is no invitation)"
+      ]
+    },
+    {
+      "id": 14,
+      "name": "mourning palette — the same page at night",
+      "prompt": "برای محرم همین قالب را می‌خواهم، ولی تیره و حرفه‌ای؛ نه سیاه مطلق، نه شاد.",
+      "files": [
+        "evals/files/objection.md"
+      ],
+      "expected_output": "A reel built with `theme: mourning` (or `--theme mourning`): charcoal #0e0f0e, ivory text, muted gold, inverted logo, no invitation.",
+      "expectations": [
+        "Uses the mourning theme instead of inventing colours in the spec",
+        "Never uses pure black #000, pure white #fff or red; the accent stays muted gold",
+        "Logo is inverted (`logo_filter`); the watermark is legible",
+        "`verify.py` prints the theme and body contrast ≥ 6:1 (mourning is 15.7:1)",
+        "The heavy text ends with the verse and the brand card — no invitation",
+        "Says in Persian which palette was used and why"
+      ]
+    }
+  ]
+}
