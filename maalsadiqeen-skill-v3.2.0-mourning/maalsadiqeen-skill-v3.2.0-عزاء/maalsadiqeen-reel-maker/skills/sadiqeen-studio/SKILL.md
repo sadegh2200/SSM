@@ -1,6 +1,6 @@
 ---
 name: sadiqeen-studio
-description: Use when the user wants a reel, a short vertical video, a poster-grade clip, or a «ریل» / «ویدیو» for «مع الصادقين» (@maalsadiqeen) — or hands over any Arabic religious text (a page, a transcript, a forwarded message, a question, an objection, an occasion) and wants it turned into one calm, sourced, 30–60 s 1080×1920 video. Also use when the user asks to redesign, re-time, re-style, re-voice or QA an existing «مع الصادقين» reel, to diagnose why a reel looks amateur, or to produce the publishing kit (three captions, the comment bank, the schedule) for one. Triggers on «ریل بساز», «از این متن ریل دربیار», «این ویدیو را حرفه‌ای کن», «همین سبک مع الصادقین», "make it look like the page", and on any request to render a reel spec to MP4 without node, HyperFrames or a browser.
+description: Use when the user wants a reel, a short vertical video, a poster-grade clip, or a «ریل» / «ویدیو» for «مع الصادقين» (@maalsadiqeen) — or hands over any Arabic religious text (a page, a transcript, a forwarded message, a question, an objection, an occasion) and wants it turned into one calm, sourced, 30–60 s 1080×1920 video. Also use when the user asks to redesign, re-time, re-style, re-voice or QA an existing «مع الصادقين» reel, to diagnose why a reel looks amateur, or to produce the publishing kit (three captions, the comment bank, the schedule) for one. Also use when the user hands over **a recorded take** — a phone or laptop video of a scholar — and asks to «ادیت» it, «حرفه‌ای‌اش کن», make a reel out of it, or dress it in the brand: `footage.py` measures the take, cuts at the pauses, covers every cut with a card, and grades it (see `references/05-footage.md`). Triggers on «ریل بساز», «از این متن ریل دربیار», «این ویدیو را حرفه‌ای کن», «روی این ویدیو کار کن», «همین سبک مع الصادقین», "make it look like the page", "edit my recording", and on any request to render a reel spec to MP4 without node, HyperFrames or a browser.
 license: Proprietary — made for the maalsadiqeen page. Fonts and sound cues come from the installed `maalsadiqeen-reel` skill (OFL fonts, licensed SFX — see its assets/sfx/CREDITS.md).
 metadata:
   title: Sadiqeen Studio — استودیوی مع الصادقین
@@ -58,6 +58,32 @@ Stage 2 is a stop, not a formality. Nothing is rendered until the user has chose
 8. **One invitation at most, and usually none.** «أَرْسِلْهَا لِمَنْ تُحِبّ» is forbidden.
 9. **Every number in the report comes from a measurement**, never from memory.
 10. **Reply in Persian; on-screen copy in Classical Arabic.** The reel must make sense muted.
+
+## Footage mode — the recording is the picture
+
+Some briefs are not text-first. The user has already spoken on camera, and the job is to make the
+take behave like the page. Same brand, same type, different substrate:
+
+```bash
+python3 footage.py probe  raw.mp4                   # rotation · fps · duration · audio
+python3 footage.py pauses raw.mp4                   # the only honest cut points
+python3 footage.py build  edit.json --out deliver/  # cut · grade · type · sound · verify
+```
+
+The doctrine, in four lines:
+
+1. **No word is removed and no jump cut is seen.** Pauses are shortened, never deleted (`lead`
+   0.12 s stays at each end) and every shortened pause sits inside a full-frame card — the cut is
+   hidden by paper, the splice is inside silence. `audit()` fails the build if a cut is uncovered.
+2. **The grade removes the phone.** Filmic S-curve, warm highlights, blacks lifted not crushed,
+   vignette, grain, and a 5% push-in. Nothing is applied that the frame does not need.
+3. **Type lives on a falloff, not in a box.** Chyrons bottom-right over a dithered scrim, snapped to
+   the syllable he actually breathes before; cards own the frame when he pauses.
+4. **No music.** Denoise, presence, gentle compression, two-pass −15.5 LUFS. A bed under a hadith is
+   the fastest way to make it cheap.
+
+`verify()` then measures the finished file, including **contrast per chyron sampled from the real
+frame** — that is the check that catches a pale hand passing behind the words.
 
 ## Run it
 
@@ -199,11 +225,13 @@ sentence in half.
 | `scripts/sound.py` | bed (the brand's `gen_bed.py`) + cue track + ducking + loudnorm |
 | `scripts/verify.py` | the numeric gate + contact sheet + `report.md` |
 | `scripts/kit.py` | captions, comment bank, schedule, alt text |
+| `scripts/footage.py` | footage mode: probe · pauses · cut plan · cards & chyrons · grade · mix · verify |
 | `scripts/brandkit.py` | tokens from `config/brand.json`, geometry, fonts, assets |
 | `references/01-pipeline.md` | every spec field, the recognition contract, the treatment rules |
 | `references/02-type-and-stage.md` | the type stack, the four traps, layout table, safe zones |
 | `references/03-sound.md` | bed, cues, ducking, LUFS, recitation, narration |
 | `references/04-qc.md` | the gates, the numbers, the five-minute human review |
+| `references/05-footage.md` | a recorded take: measuring, cutting at pauses, the grade, the type layers, the mix |
 | `evals/` | eight test prompts, the rubric, and `fixtures/sample-class-a.md` (a 90-word class-A text with two grades and one verse — the end-to-end smoke test) |
 
 ## Done means
@@ -214,5 +242,7 @@ sentence in half.
 - The MP4 is 1080×1920 · 30.000 fps · h264/yuv420p + aac · −15.5 ±1.2 LUFS · ≤ −1.0 dBTP.
 - `kit/` has three captions inside their limits, seven comment slots, a schedule in the brand's
   timezone, an `.srt` and alt text.
+- For a footage edit: every cut is covered by a card, `report.md` passes, and the measured chyron
+  contrast is ≥6:1 on the real frame.
 - The Persian summary says: the one idea, the angle the user chose, the block table, what was
   verified, what is uncertain (missing reference, unverified wording), and what to check by eye.
