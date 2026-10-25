@@ -1,0 +1,115 @@
+{
+  "skill": "sadiqeen-studio",
+  "version": "2.0.0",
+  "how_to_run": "For each case: run the pipeline in a scratch directory, keep everything the skill wrote, then grade with evals/rubric.md. A case passes only if every pass/anchor in the rubric holds.",
+  "cases": [
+    {
+      "id": "E1",
+      "name": "short form, class A — the canonical reel",
+      "input": "assets: the installed maalsadiqeen-reel skill's assets/examples/sadiqeen-9-119.silent.json",
+      "prompt_fa": "این متن را به ریل مع الصادقین تبدیل کن.",
+      "must": [
+        "recognize → class A (verse + hadith + sanad) with both references extracted",
+        "treat → three angles, scored, and the run STOPS for the user to choose",
+        "brandgate → 0 fails on copy_lint, ar_copycheck, sanad_check",
+        "build → 1080×1920 · 30 fps · 45.0 s · h264+aac · −15.5 ±1.2 LUFS · 0 fails in report.md",
+        "contact-sheet.png exists and was inspected; the hero frame is at 50–65 % of runtime",
+        "kit/ has instagram/facebook/x captions inside their limits, 7 comment slots, publish.md, .srt"
+      ],
+      "fail_if": [
+        "a proof card appears with no reference",
+        "the verse is set without tashkeel or without a drawn bracket",
+        "any glyph renders as a box (▯)"
+      ]
+    },
+    {
+      "id": "E2",
+      "name": "mourning palette, occasion",
+      "input": "a 500-word text about عاشوراء with one verse (2:156) and no hadith",
+      "prompt_fa": "برای محرم یک ریل بساز.",
+      "must": [
+        "recognize → class E or A, occasion = محرم/عاشوراء",
+        "theme resolves to mourning (charcoal #0e0f0e, ivory #efe8d8, muted gold)",
+        "no red anywhere, no pure black/white; verify prints body contrast ≥ 6:1",
+        "no invitation at the end (cta.share empty) per the brand's ending doctrine",
+        "the reel still reads as the same page at night — same arc, sprig, logo, type"
+      ],
+      "fail_if": ["the main cream palette is used", "a share/save line is added to a mourning reel"]
+    },
+    {
+      "id": "E3",
+      "name": "objection, class F",
+      "input": "a forwarded message: «يقولون إن الشيعة لا يأخذون إلا من كتبهم…» with a scholar's answer",
+      "prompt_fa": "به این شبهه جواب بده، ریل بساز.",
+      "must": [
+        "recognize → class F",
+        "the treatment states the objection fairly before answering",
+        "no group is named on screen; the register stays calm (copy_lint clean)",
+        "the verdict is the text's, not the writer's"
+      ],
+      "fail_if": ["polemical wording", "the objection is strawman-ed or exaggerated"]
+    },
+    {
+      "id": "E4",
+      "name": "a question people ask, class D",
+      "input": "«كيف أجمع بين الآية والحديث في معنى الصدق؟» plus a 200-word answer",
+      "prompt_fa": "این سؤال را جواب بده.",
+      "must": [
+        "shape includes `qa` with the question on screen for ≥ 2 s",
+        "the answer is ≤ 5 sentences, right-aligned, one sentence per reveal",
+        "answer scene ≥ 8 s"
+      ],
+      "fail_if": ["the answer is centred", "the question is paraphrased into a slogan"]
+    },
+    {
+      "id": "E5",
+      "name": "long text, one idea",
+      "input": "900 words on «معنى الولاية في القرآن» with two references and no verse",
+      "prompt_fa": "از این متن ریل بساز.",
+      "must": [
+        "recognize → long_form G–L, one dense block only",
+        "exactly one prose block (paragraph/definition/qa/compare/timeline/steps) plus ≤ 4 short blocks",
+        "on-screen words inside soft budget for the chosen duration",
+        "the overflow goes to the caption (kit), not to the screen"
+      ],
+      "fail_if": ["two prose blocks that say the same thing", "a 40 s reel carrying 150 words on screen"]
+    },
+    {
+      "id": "E6",
+      "name": "missing reference — the honest no",
+      "input": "a ḥadīth with no book, no page, and no grading",
+      "prompt_fa": "همین را ریل کن.",
+      "must": [
+        "recognize flags the missing reference and the missing grade in `missing`",
+        "at most three questions, in one message, asking for the source and the grade",
+        "if built anyway: no `proof` block, no seal, and the Persian summary says the reference is missing"
+      ],
+      "fail_if": ["a citation or a grading is invented", "a seal is drawn for an ungraded ḥadīth"]
+    },
+    {
+      "id": "E7",
+      "name": "degraded environment",
+      "input": "the brand skill is not installed (SADIQEEN_BRAND_ROOT points nowhere)",
+      "prompt_fa": "ریل بساز.",
+      "must": [
+        "doctor reports the brand skill as missing and names it",
+        "the palette falls back to the snapshot in brandkit.py",
+        "brandgate reports `warn` (not `pass`) for the missing checkers",
+        "the summary says the copy was not gated by the brand's own checkers"
+      ],
+      "fail_if": ["a missing checker is reported as clean", "fonts are silently replaced by a system font"]
+    },
+    {
+      "id": "E8",
+      "name": "the request that must be declined",
+      "input": "«یک ریل ۹۰ ثانیهای از کل این مقاله بساز» (the article is 4 000 words)",
+      "prompt_fa": "کل مقاله را در ۹۰ ثانیه ریل کن.",
+      "must": [
+        "decline the 90 s single reel and say why (the brand has no 90 s version)",
+        "propose a series: one reel per idea, same opening frame",
+        "do not scaffold a spec that violates the duration or the word budget"
+      ],
+      "fail_if": ["a 90 s reel is built", "the copy is compressed until it stops making sense"]
+    }
+  ]
+}

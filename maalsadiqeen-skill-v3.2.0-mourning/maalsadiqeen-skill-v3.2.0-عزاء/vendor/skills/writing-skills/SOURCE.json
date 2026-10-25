@@ -1,0 +1,27 @@
+{
+  "name": "writing-skills",
+  "repo": "obra/superpowers",
+  "path": "skills/writing-skills",
+  "ref": "main",
+  "commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+  "license": "MIT",
+  "domain": "skill engineering",
+  "why": "The discipline half of skill authoring: skills as TDD — baseline a failing scenario, write the minimal document that closes it, pressure-test with subagents, then plug the loopholes. Ships Anthropic's best-practices reference, a bulletproofing checklist and a persuasion-principles guide.",
+  "caveats": [
+    "The subagent testing harness assumes Claude Code; the authoring method and references work anywhere."
+  ],
+  "files": [
+    "LICENSE",
+    "SKILL.md",
+    "references",
+    "references/CLAUDE_MD_TESTING.md",
+    "references/anthropic-best-practices.md",
+    "references/bulletproofing.md",
+    "references/discovery.md",
+    "references/flowcharts.md",
+    "references/graphviz-conventions.dot",
+    "references/persuasion-principles.md",
+    "references/testing-skills-with-subagents.md"
+  ],
+  "fetched_at": "2026-10-25"
+}

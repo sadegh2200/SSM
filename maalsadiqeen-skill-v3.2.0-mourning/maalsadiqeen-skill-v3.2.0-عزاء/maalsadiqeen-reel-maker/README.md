@@ -21,7 +21,9 @@ maalsadiqeen-reel-maker/            ← پوشهٔ اصلی (شما اینجا �
 ├── UPGRADE-PLAN-fa.md               ← نقشهٔ ارتقا و گزارش فازها
 ├── skills/                          ← دو ابزار درون‌سازمانی (نصب می‌شوند، مثل اسکیل اصلی)
 │   ├── arabic-editor/               ← ویرایش فصحی: ثبت، املاء، اعراب، نشانه‌گذاری + ar_copycheck.py
-│   └── hadith-sanad/                ← متن/سند/تخریج/درجه + sanad_check.py
+│   ├── hadith-sanad/                ← متن/سند/تخریج/درجه + sanad_check.py
+│   └── sadiqeen-studio/             ← استودیوی رندر بومی (PIL + HarfBuzz، بدون node): تشخیص متن، سه
+│                                       زاویه، بلوک‌ها، صدا، بازبینی، کیفیت انتشار — README جدا دارد
 └── maalsadiqeen-reel/               ← خودِ اسکیل — این پوشه را نصب کنید
     ├── SKILL.md                     ← دستورالعمل ایجنت (ورودی متن، چهار سناریو، گیت، ساخت، کیت)
     ├── config/                      ← brand.json (تنظیمات زمان اجرا) + content-log.json (گارد تنوع)
