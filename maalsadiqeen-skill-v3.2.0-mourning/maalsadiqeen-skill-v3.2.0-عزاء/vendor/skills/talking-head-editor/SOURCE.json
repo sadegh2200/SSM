@@ -1,0 +1,18 @@
+{
+  "name": "talking-head-editor",
+  "repo": "griffinwooldridge/talking-head-editor",
+  "path": ".",
+  "ref": "main",
+  "commit": "0a73a3e",
+  "stars": 7,
+  "license": "MIT",
+  "domain": "talking-head editing end to end",
+  "why": "The most complete single playbook for a person speaking to camera: DeepFilterNet voice cleanup capped so it never sounds robotic, match-EQ and -14 LUFS loudness, pause-separated transcription so retakes are never merged, cuts that wait for the real word end, reframing and punch-ins, word-timed captions, and motion graphics written as code (cine.js scene kit, three worked examples, a motion standard).",
+  "caveats": [
+    "scripts/setup.sh builds a .venv with whisper, DeepFilterNet and OpenCV — a large install; those model downloads are blocked here, so only the ffmpeg/node parts of the pipeline run in this sandbox.",
+    "Motion-graphics rendering uses HyperFrames + node, which are installed; targets 16:9 by default.",
+    "docs/ (site build) was dropped from the vendored copy; mg/, scripts/ and references/ are intact."
+  ],
+  "fetched_at": "2026-10-25",
+  "files": ["LICENSE", "README.md", "SKILL.md", "references/", "scripts/", "mg/"]
+}

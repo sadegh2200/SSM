@@ -1,0 +1,18 @@
+{
+  "name": "video-use",
+  "repo": "browser-use/video-use",
+  "path": ".",
+  "ref": "main",
+  "commit": "43cfc56",
+  "stars": 29735,
+  "license": "MIT",
+  "domain": "conversational video editing",
+  "why": "The most-starred editing skill in the ecosystem: choose-your-edit-by-conversation for talking heads, interviews, tutorials and montages. It encodes a production workflow (transcribe word-level, confirm the plan, cut, grade, animate overlays, burn subtitles, verify, persist state) rather than a menu of operations, which is the right interface for a person-on-camera edit.",
+  "caveats": [
+    "Hosted transcription (ElevenLabs Scribe) is its default and needs ELEVENLABS_API_KEY; no key is stored here, and local model downloads are blocked in this sandbox, so transcription steps are unavailable until a key or a local engine is provided.",
+    "Python deps are declared in pyproject.toml (uv sync / pip install -e .); the helpers still call plain ffmpeg for cut/render/grade, which is installed.",
+    "static/ (marketing images) was dropped from the vendored copy."
+  ],
+  "fetched_at": "2026-10-25",
+  "files": ["LICENSE", "README.md", "SKILL.md", "install.md", "pyproject.toml", "helpers/", "skills/manim-video/", "tests/"]
+}

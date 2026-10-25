@@ -1,0 +1,17 @@
+{
+  "name": "cut-video",
+  "repo": "louisedesadeleer/cut-video",
+  "path": ".",
+  "ref": "main",
+  "commit": "a5a87a6",
+  "stars": 114,
+  "license": "MIT",
+  "domain": "rough cut / silence and filler removal",
+  "why": "The best-documented rough-cut method for talking heads: forced alignment (Montreal Forced Aligner, ~10-20 ms) instead of raw Whisper timestamps, every keep boundary ground-truthed by isolated-window re-transcription, trim+concat instead of select so audio never drifts, and a re-transcription QA pass on the output. The judgement in its SKILL.md is valuable even where the toolchain is not installed.",
+  "caveats": [
+    "Needs Whisper (transcript text) and MFA (conda-installed, auto-downloads models); both are blocked in this sandbox, so run it where those are available or use ffmpeg-skill's silence.py for a coarser cut.",
+    "Assumes macOS hardware decode (-hwaccel videotoolbox) and English tiny.en defaults."
+  ],
+  "fetched_at": "2026-10-25",
+  "files": ["LICENSE", "README.md", "SKILL.md", "make_review.py"]
+}

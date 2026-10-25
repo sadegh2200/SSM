@@ -1,0 +1,18 @@
+{
+  "name": "ffmpeg-skill",
+  "repo": "kajisho5/ffmpeg-skill",
+  "path": ".",
+  "ref": "main",
+  "commit": "88e2f42",
+  "stars": 2614,
+  "license": "MIT",
+  "domain": "local FFmpeg editing (video + audio)",
+  "why": "The technical backbone for any talking-head edit: 42 scripted tools with a machine-readable contract — cut/join/silence removal, reframe to 9:16, word-timed and karaoke captions, multicam + external-mic sync, loudness to platform targets, contact sheets for visual checks, and platform compliance checks. Pure Python 3.10+ standard library, no cloud, no API keys, no ASR dependency, so it is fully usable in this sandbox.",
+  "caveats": [
+    "It executes an edit; it does not decide one. Editorial choices stay with maalsadiqeen-reel or the agent.",
+    "Transcription is out of scope: captions need a timed text file or --transcribe with a local engine.",
+    "docs/, tests/, evals/, demos/ and the repo's own .claude dev skills were dropped from the vendored copy to keep the repo light; nothing the skill reads at runtime was removed."
+  ],
+  "fetched_at": "2026-10-25",
+  "files": ["LICENSE", "README.md", "SKILL.md", "AGENTS.md", "CHANGELOG.md", "bin/install.js", "mcp/", "references/", "scripts/", "templates/", "examples/"]
+}
