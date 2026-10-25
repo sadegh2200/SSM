@@ -85,6 +85,37 @@ The doctrine, in four lines:
 `verify()` then measures the finished file, including **contrast per chyron sampled from the real
 frame** — that is the check that catches a pale hand passing behind the words.
 
+## Inserts — three cards an editor can cut in
+
+A footage edit is not only the take. It needs b-roll that is not a screenshot of a page: the
+series title, the one word the speaker is about to say, the dates he is counting.
+
+```bash
+python3 inserts.py list                        # title · word · dates
+python3 inserts.py build inserts.json --out deliver/inserts
+```
+
+Each asset is 3–4 s, silent, 1080×1920 at 30 fps, and writes **three** files:
+
+| file | for |
+|---|---|
+| `<id>.mp4` | drop on the timeline as it is — no audio to fight, hard cuts on both ends |
+| `<id>.png` | the hold frame, full size — cover, thumbnail, a still instead of motion |
+| `<id>-type.png` | the same type on transparency — layer it over the speaker |
+
+The motion is the studio's own vocabulary, not a preset: deblur-in with a 2 % scale, a hairline
+that wipes in from the right, staggered lines, ten gold beads that count themselves one by one,
+one light sweep, grain, a 1 % push. Everything settles by ~1 s, so the clip is mostly a **hold**
+— which is what an editor needs when the take keeps talking underneath.
+
+Three rules:
+
+1. **Silent, always.** An insert that carries its own sound forces the editor to duck the voice.
+2. **Hard cuts are safe.** No fade from black, no fade to black: the paper is constant, only the
+   type moves. The last 0.3 s clears the type, so a cut on the tail lands on clean paper.
+3. **The copy goes through the same gate.** `inserts.py build` runs `copy_lint` on every string
+   before a frame is drawn; a banned word stops the build.
+
 ## Run it
 
 ```bash
@@ -226,6 +257,7 @@ sentence in half.
 | `scripts/verify.py` | the numeric gate + contact sheet + `report.md` |
 | `scripts/kit.py` | captions, comment bank, schedule, alt text |
 | `scripts/footage.py` | footage mode: probe · pauses · cut plan · cards & chyrons · grade · mix · verify |
+| `scripts/inserts.py` | short standalone inserts (title · word · dates) as MP4 + PNG + transparent type |
 | `scripts/brandkit.py` | tokens from `config/brand.json`, geometry, fonts, assets |
 | `references/01-pipeline.md` | every spec field, the recognition contract, the treatment rules |
 | `references/02-type-and-stage.md` | the type stack, the four traps, layout table, safe zones |

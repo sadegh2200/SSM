@@ -145,6 +145,13 @@ delivery: −15.7 LUFS, −1.0 dBTP.
 `anchor` is `start` · `end` · `cut` (with `index`) · or a numeric `at` in **source** seconds, which
 is mapped to output time through the removed pauses.
 
+## 7b · Standalone inserts
+
+Cards built by `footage.py` live inside one cut. When the editor wants pieces to move between
+edits, `inserts.py` renders the same pages as **standalone assets**: 3–4 s, silent, MP4 + PNG +
+a transparent-type PNG. See SKILL.md § *Inserts* for the contract (silent, hard-cut safe, the
+copy gate applies).
+
 ## 8 · Cost
 
 | stage | 67.6 s deliverable |
