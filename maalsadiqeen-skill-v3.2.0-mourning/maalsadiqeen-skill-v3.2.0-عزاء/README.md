@@ -71,9 +71,25 @@ bash install-skill.sh --check   # فقط بررسی: هر سه نسخه با م�
 |---|---|---|
 | `arabic-editor` | `maalsadiqeen-reel-maker/skills/arabic-editor/` | پیش از رفتن هر جمله روی تصویر؛ وقتی `copy_lint` ایراد اعراب/املاء/ثبت می‌گیرد |
 | `hadith-sanad` | `maalsadiqeen-reel-maker/skills/hadith-sanad/` | پیش از هر حدیث، درجه یا مهر «صحیح السند» |
+| `talking-head-studio` | `maalsadiqeen-reel-maker/skills/talking-head-studio/` | **وقتی منبع، فیلمِ یک نفر است که صحبت می‌کند:** حذف سکوت، قاب ۹:۱۶ با دنبال‌کردن سوژه، نور/رنگ، زوم، حذف نویز، بلندی پلتفرم، زیرنویس فارسی با بازنگاشت زمان — همه با یک فرمان و بازبینی عددی |
 
-این دو، برخلاف چهار اسکیل بعدی، بیرونی نیستند؛ بخشی از همین پروژه‌اند و با `install-skill.sh` در همان
-سه مسیر نصب می‌شوند.
+### `talking-head-studio` (نسخهٔ ۱٫۰ — تدوین ویدیوی گفتاری)
+
+```
+python3 scripts/studio.py TALK.mp4 --out final.mp4 --captions talk.srt --preset social
+```
+
+پنج مرحله: `analyze` (اندازه‌گیری) → `plan` (تصمیم + دلیل هر تصمیم) → `render` (یک گراف
+ffmpeg) → `verify` (۱۰–۱۲ بررسی + شیت بازبینی) → `report.md`. پنج پریست: `social`، `clean`،
+`cinematic`، `podcast`، `raw`. کاملاً محلی؛ بدون کلید API و بدون دانلود مدل.
+پیش‌نیاز را خودش بررسی و (با `bash scripts/bootstrap.sh`) نصب می‌کند.
+
+**مرزها:** رونویسی نمی‌کند (برای ASR از اسکیل‌های همراه `cut-video`/`clipify`/
+`talking-head-editor`/`video-use` استفاده کنید)، فقط مکث‌ها را می‌برد نه «اِ…» وسط جمله، و
+هیچ مقداری را حدس نمی‌زند — اندازه‌گیریِ ناموفق به هشدار صریح تبدیل می‌شود.
+
+این سه، برخلاف اسکیل‌های بخش بعدی، بیرونی نیستند؛ بخشی از همین پروژه‌اند و با `install-skill.sh`
+در همان سه مسیر نصب می‌شوند.
 
 ## اسکیل‌های مکمل نصب‌شده
 

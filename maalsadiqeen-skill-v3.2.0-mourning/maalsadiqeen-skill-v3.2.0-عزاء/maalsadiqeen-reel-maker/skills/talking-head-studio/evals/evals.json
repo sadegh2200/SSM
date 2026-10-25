@@ -1,0 +1,112 @@
+{
+  "skill": "talking-head-studio",
+  "version": "1.0.0",
+  "how_to_run": "Give an agent the prompt with a real file; score against rubric.md. A case passes only when the quoted artifact exists and the numbers in the answer match verify.json.",
+  "cases": [
+    {
+      "id": "E1-clean-cut",
+      "prompt": "این ویدیو را ادیت کن: raw.mp4 (یک نفر صحبت می‌کند، ۱۲ ثانیه، سه جمله با سکوت بین‌شان)",
+      "expect": {
+        "files": ["final.mp4", "final.verify.json", "final.report.md", "final.sheet.png"],
+        "verdict": "PASS or WARN-with-reason",
+        "duration": "shorter than the source, and no speech removed",
+        "answer_must_state": ["dead air removed in seconds", "number of cuts", "verdict line"]
+      }
+    },
+    {
+      "id": "E2-persian-captions",
+      "prompt": "زیرنویس فارسی بگذار: raw.mp4 با talk.fa.srt",
+      "expect": {
+        "checks": [
+          "captions.ass exists and uses Spacing 0",
+          "cues_out > 0 and first cue starts within 0.5s of 0",
+          "a rendered frame shows joined, right-to-left Persian",
+          "final.srt is written beside the MP4 with times inside the new duration"
+        ]
+      }
+    },
+    {
+      "id": "E3-portrait-source",
+      "prompt": "این ویدیوی عمودی را برای ریل آماده کن: portrait.mp4",
+      "expect": {
+        "checks": ["output is 1080x1920", "fit stays cover (no band)", "no black bars", "verdict PASS"]
+      }
+    },
+    {
+      "id": "E4-wide-source-zoom",
+      "prompt": "این ویدیوی افقی را ۹:۱۶ کن و کمی زوم بگذار: raw.mp4",
+      "expect": {
+        "checks": [
+          "layout decision is stated (cover or band) with the magnification number",
+          "zoom amplitude <= 12%",
+          "face inside the frame in >= 80% of sampled frames"
+        ]
+      }
+    },
+    {
+      "id": "E5-silent-source",
+      "prompt": "این ویدیو صدا ندارد، برایم آماده کن: silent.mp4",
+      "expect": {
+        "checks": [
+          "render succeeds without an audio stream",
+          "verify reports audio as WARN (source had none), not FAIL",
+          "the answer tells the user the file is silent"
+        ],
+        "must_not": ["claim audio was normalised", "fail the whole job"]
+      }
+    },
+    {
+      "id": "E6-no-face",
+      "prompt": "این ضبط صفحه را برای شورت آماده کن: noface.mp4",
+      "expect": {
+        "checks": [
+          "no face -> centre crop, and the answer says so",
+          "warning about no face is surfaced",
+          "verdict is not FAIL for that reason"
+        ],
+        "must_not": ["pretend the subject was tracked"]
+      }
+    },
+    {
+      "id": "E7-plan-only",
+      "prompt": "قبل از رندر بگو چه کارهایی می‌کنی: --plan-only",
+      "expect": {
+        "checks": [
+          "no MP4 is produced",
+          "plan lists every decision with a number",
+          "warnings are listed separately"
+        ]
+      }
+    },
+    {
+      "id": "E8-no-transcript",
+      "prompt": "زیرنویس بگذار (بدون این‌که SRT بدهد)",
+      "expect": {
+        "must": ["ask for a transcript/SRT, or offer captions in output time, or deliver uncaptioned"],
+        "must_not": ["invent dialogue", "claim transcription happened"]
+      }
+    },
+    {
+      "id": "E9-too-long",
+      "prompt": "این را ۲۰ ثانیه کن: raw.mp4 (منبع ۱۲ ثانیه است) و برعکس: ویدیوی ۶۰ ثانیه‌ای را ۱۵ ثانیه کن",
+      "expect": {
+        "checks": [
+          "when the target needs removing words, the skill warns and does not cut speech",
+          "the warning appears in the answer and in report.md"
+        ]
+      }
+    },
+    {
+      "id": "E10-toolchain",
+      "prompt": "در محیط تازه اجرا کن (ffmpeg نصب نیست)",
+      "expect": {
+        "checks": [
+          "bootstrap.sh --check lists what is missing and installs nothing",
+          "studio.py refuses with a clear message and a fix command",
+          "--install performs the bootstrap and then continues"
+        ],
+        "must_not": ["fail with a raw traceback"]
+      }
+    }
+  ]
+}
