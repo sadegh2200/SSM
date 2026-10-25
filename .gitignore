@@ -1,0 +1,17 @@
+# Installed copies of the skills (created by install-skill.sh from the master copies
+# under maalsadiqeen-reel-maker/ and vendor/skills/ — never edit or commit these).
+**/.claude/skills/
+
+# Reel build workspace and deliverables (scripts/env.sh defaults: ./reel-work, ./reel-deliver)
+reel-work/
+reel-deliver/
+
+# Render output and HyperFrames artifacts
+*.mp4
+*.webm
+.hyperframes/
+node_modules/
+
+# Python bytecode
+__pycache__/
+*.pyc
